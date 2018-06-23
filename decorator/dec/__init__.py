@@ -1,0 +1,1 @@
+from decorator.dec.rule import *
