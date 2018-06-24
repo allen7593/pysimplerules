@@ -1,0 +1,2 @@
+class RuleConfigException(Exception):
+    pass

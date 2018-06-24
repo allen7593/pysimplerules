@@ -1,5 +1,6 @@
 import unittest
 
+from const import ITEMS_PROVIDED, AGENDA_NAME
 from exceptions.initializeException import InitializeException
 from exceptions.jsonValidationException import JsonValidationException
 from initializer.initializer import Initializer
@@ -10,7 +11,7 @@ class TestDecorator(unittest.TestCase):
     def test_json_1(self):
         agenda_config = [
             {
-                "items_provided": []
+                ITEMS_PROVIDED: []
             },
         ]
         init = Initializer(agenda_config)
@@ -22,7 +23,7 @@ class TestDecorator(unittest.TestCase):
     def test_json_2(self):
         agenda_config = [
             {
-                "agenda_name": "test_agenda",
+                AGENDA_NAME: "test_agenda",
             }
         ]
         init = Initializer(agenda_config)
@@ -34,8 +35,8 @@ class TestDecorator(unittest.TestCase):
     def test_json_3(self):
         agenda_config = [
             {
-                "agenda_name": "test_agenda",
-                "items_provided": ""
+                AGENDA_NAME: "test_agenda",
+                ITEMS_PROVIDED: ""
             }
         ]
         init = Initializer(agenda_config)
@@ -47,8 +48,8 @@ class TestDecorator(unittest.TestCase):
     def test_json_4(self):
         agenda_config = [
             {
-                "agenda_name": "test_agenda",
-                "items_provided": []
+                AGENDA_NAME: "test_agenda",
+                ITEMS_PROVIDED: []
             }
         ]
         init = Initializer(agenda_config)
