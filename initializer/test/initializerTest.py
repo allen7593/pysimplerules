@@ -1,5 +1,6 @@
 import unittest
 
+from agendagroup.config.RuleConfigs import RuleConfigs
 from const import ITEMS_PROVIDED, AGENDA_NAME
 from exceptions.initializeException import InitializeException
 from exceptions.jsonValidationException import JsonValidationException
@@ -71,6 +72,18 @@ class TestDecorator(unittest.TestCase):
             init.initialize()
         the_exception = cm.exception
         self.assertEqual(str(the_exception), "Invalid type of Config List")
+
+    def test_json_7(self):
+        agenda_config = [
+            {
+                AGENDA_NAME: "test_agenda",
+                ITEMS_PROVIDED: [int]
+            }
+        ]
+        init = Initializer(agenda_config)
+        init.initialize()
+        ins = RuleConfigs.instance
+        self.assertEqual(ins.get_rule_config(), agenda_config)
 
 
 if __name__ == '__main__':
