@@ -1,0 +1,2 @@
+class AgendaPrepareException(Exception):
+    pass

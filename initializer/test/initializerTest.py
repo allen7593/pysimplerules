@@ -82,7 +82,7 @@ class TestDecorator(unittest.TestCase):
         ]
         init = Initializer(agenda_config)
         init.initialize()
-        ins = RuleConfigs.instance
+        ins = RuleConfigs()
         self.assertEqual(ins.get_rule_config(), agenda_config)
 
 

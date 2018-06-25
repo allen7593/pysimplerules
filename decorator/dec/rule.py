@@ -1,3 +1,5 @@
+from const import AGENDA
+
 rule_deck = []
 
 
@@ -15,3 +17,8 @@ def rule(agenda: str, exec_order: int = 0):
         return wrapper
 
     return rule_dec
+
+
+def get_rules_agenda(agenda_name: str):
+    if rule_deck:
+        return [rule_item for rule_item in rule_deck if rule_item[AGENDA] == agenda_name]
