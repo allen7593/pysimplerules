@@ -1,0 +1,2 @@
+class RuleExecutorException(Exception):
+    pass
