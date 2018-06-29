@@ -8,7 +8,7 @@ from exceptions.agendaprepareException import AgendaPrepareException
 
 
 def get_obj_name(obj) -> str:
-    if type(obj) in [int, str, list, dict, set, tuple, float]:
+    if type(obj) in [int, str, list, dict, set, tuple, float, bytes]:
         raise AgendaPrepareException("Primitive types are not supported")
     if inspect.isclass(type(obj)):
         return str(type(obj).__name__)

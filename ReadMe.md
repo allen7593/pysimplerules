@@ -1,21 +1,52 @@
 #Python Rule Engine
-## How to setup?
+## How to use?
 1. Create an empty python file and have a list with following structure
     ```
-    aganda_dict = [
+    aganda_config = [
         {
             "agenda_name": "agenda_one",
             "items_provided": [
-                <classes that need to provided for this agenda>
+                <classes that need to provided for this agenda,
+                Note: Premitive types are not supported:
+                    - int
+                    - float
+                    - str
+                    - list
+                    - dict
+                    - set
+                    - bytes
+                    - tuple
+                >
             ]
         }
     ]
     ```
-2. Initialize rule config using Initializer
+2. Initialize rule config using Initializer, you only need to initialize once when application start
     ```
     from initializer.initializer import Initializer
     
     init = Initializer(agenda_config)
     init.initialize()
     ```
-3.
+3. Decorate the method you wants to execute for each agenda group using @rule decorator
+    ```
+    from decorator.dec import rule
+
+    @rule("test_agenda", conditions="ai.get_TestClass().a == 1")
+    def foobar(agenda_item):
+        some actions...
+    ```    
+    Parameters for @rule decorator
+    
+    | Name          | Description     | Type  |
+    | ------------- |:---------------:| -----:|
+    | agenda        | agenda group    |   str |
+    | exec_order    | execution order, the bigger the number, the higher the priority, default to 0|   int |
+    | conditions    | conditions, default to True|    str |
+ 4. Prepare a list of rules that you wants to import
+ 5. Use RuleReloader to reload/re-import all rules
+ 6. Prepare your own class instances that you provided in agenda_config for each agenda group
+ 7. Execute rules for certain agenda group using RuleExecutor
+ 8. An agenda_item will be provided to the method and all class instances your just provided are in agenda_item,
+you can access them via using ai.get_{ClassTypeName} or ai.{ClassTypeName}, {ClassTypeName} will as same as the name of your class type, 
+and also its case sensitive.

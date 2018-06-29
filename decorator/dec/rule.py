@@ -1,14 +1,15 @@
-from const import AGENDA
+from const import AGENDA, EXEC_ORDER, FUNC, CONDITIONS
 
 rule_deck = []
 
 
-def rule(agenda: str, exec_order: int = 0):
+def rule(agenda: str, exec_order: int = 0, conditions: str = "True"):
     def rule_dec(func):
         rule_dict = dict()
-        rule_dict["agenda"] = agenda
-        rule_dict["exec_order"] = exec_order
-        rule_dict["func"] = func
+        rule_dict[AGENDA] = agenda
+        rule_dict[EXEC_ORDER] = exec_order
+        rule_dict[FUNC] = func
+        rule_dict[CONDITIONS] = conditions
         rule_deck.append(rule_dict)
 
         def wrapper(*args, **kargs):
