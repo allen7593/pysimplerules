@@ -1,3 +1,3 @@
 import_list = [
-    "example.rule_1"
+    "example.example_rules"
 ]
