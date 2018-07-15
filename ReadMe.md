@@ -52,9 +52,28 @@
     | exec_order    | execution order, the bigger the number, the higher the priority, default to 0|   int |
     | conditions    | conditions, default to True|    str |
  4. Prepare a list of rules that you wants to import
- 5. Use RuleReloader to reload/re-import all rules
+    ```
+    import_list = [
+        "agendprepare.test.test_rules"
+    ]
+    ```
+ 5. Use RuleReloader to import/reload/re-import all rules
+    ```
+    reloader = RuleReloader(self.import_list)
+    reloader.reload()
+    ```
  6. Prepare your own class instances that you provided in agenda_config for each agenda group
+    ```
+    preparer = AgendaPreparer()
+    test_ins = TestClass()
+    test_ins.a = 1
+    ai = preparer.prepare_agenda("test_agenda", test_ins)
+    ```
  7. Execute rules for certain agenda group using RuleExecutor
+    ```
+    executor = RuleExecutor()
+    executor.execute_all(ai)
+    ```
  8. An agenda_item will be provided to the method and all class instances your just provided are in agenda_item,
 you can access them via using ai.get_{ClassTypeName} or ai.{ClassTypeName}, {ClassTypeName} will as same as the name of your class type, 
 and also its case sensitive.
