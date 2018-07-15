@@ -2,7 +2,7 @@
 ## How to use?
 1. Create an empty python file and have a list with following structure
     ```
-    aganda_config = [
+    agenda_config = [
         {
             "agenda_name": "test_agenda",
             "items_provided": [
@@ -34,7 +34,7 @@
     from pysrules.decorator import rule
 
     @rule("test_agenda", conditions="ai.get_TestClass().a == 1")
-    def foobar(agenda_item):
+    def foobar(ai):
         some actions...
     ```    
     Parameters for @rule decorator
