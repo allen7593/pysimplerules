@@ -4,7 +4,7 @@
     ```
     aganda_config = [
         {
-            "agenda_name": "agenda_one",
+            "agenda_name": "test_agenda",
             "items_provided": [
                 TestClass,
                 <classes that need to provided for this agenda,
