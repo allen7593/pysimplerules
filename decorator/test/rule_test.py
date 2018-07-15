@@ -15,12 +15,9 @@ def test_func_2():
 
 
 class TestDecorator(unittest.TestCase):
-
-    # def test_upper(self):
-    #     print(dec.rule_deck)
-
     def test_second(self):
-        for func in dec.rule_deck:
+        rule_deck = dec.RuleDeck()
+        for func in rule_deck:
             if func["agenda"]:
                 func["func"]()
 

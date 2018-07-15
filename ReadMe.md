@@ -6,6 +6,7 @@
         {
             "agenda_name": "agenda_one",
             "items_provided": [
+                TestClass,
                 <classes that need to provided for this agenda,
                 Note: Premitive types are not supported:
                     - int
@@ -20,6 +21,13 @@
             ]
         }
     ]
+    ```
+    ```
+    class TestClass: 
+        a: int
+        
+        def __init__(self):
+            self.a = 1
     ```
 2. Initialize rule config using Initializer, you only need to initialize once when application start
     ```
