@@ -1,4 +1,4 @@
-#Python Rule Engine
+# Python Rule Engine
 ## How to use?
 1. Create an empty python file and have a list with following structure
     ```
