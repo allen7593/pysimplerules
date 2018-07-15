@@ -22,13 +22,6 @@
         }
     ]
     ```
-    ```
-    class TestClass: 
-        a: int
-        
-        def __init__(self):
-            self.a = 1
-    ```
 2. Initialize rule config using Initializer, you only need to initialize once when application start
     ```
     from initializer.initializer import Initializer
@@ -63,6 +56,13 @@
     reloader.reload()
     ```
  6. Prepare your own class instances that you provided in agenda_config for each agenda group
+    ```
+    class TestClass: 
+        a: int
+        
+        def __init__(self):
+            self.a = 1
+    ```
     ```
     preparer = AgendaPreparer()
     test_ins = TestClass()
