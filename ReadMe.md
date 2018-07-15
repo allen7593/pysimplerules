@@ -50,7 +50,7 @@
     | ------------- |:---------------:| -----:|
     | agenda        | agenda group    |   str |
     | exec_order    | execution order, the bigger the number, the higher the priority, default to 0|   int |
-    | conditions    | conditions, default to True|    str |
+    | conditions    | conditions, default to True, if you did not specify the conditions, it will always executed|    str |
  4. Prepare a list of rules that you wants to import
     ```
     import_list = [
