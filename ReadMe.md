@@ -24,14 +24,14 @@
     ```
 2. Initialize rule config using Initializer, you only need to initialize once when application start
     ```
-    from initializer.initializer import Initializer
+    from pysrules.initializer import Initializer
     
     init = Initializer(agenda_config)
     init.initialize()
     ```
 3. Decorate the method you wants to execute for each agenda group using @rule decorator
     ```
-    from decorator.dec import rule
+    from pysrules.decorator import rule
 
     @rule("test_agenda", conditions="ai.get_TestClass().a == 1")
     def foobar(agenda_item):
@@ -52,7 +52,9 @@
     ```
  5. Use RuleReloader to import/reload/re-import all rules
     ```
-    reloader = RuleReloader(self.import_list)
+    from pysrules.ruleReloader import RuleReloader
+
+    reloader = RuleReloader(import_list)
     reloader.reload()
     ```
  6. Prepare your own class instances that you provided in agenda_config for each agenda group
@@ -64,6 +66,8 @@
             self.a = 1
     ```
     ```
+    from pysrules.agendprepare import AgendaPreparer
+    
     preparer = AgendaPreparer()
     test_ins = TestClass()
     test_ins.a = 1
@@ -71,6 +75,8 @@
     ```
  7. Execute rules for certain agenda group using RuleExecutor
     ```
+    from pysrules.ruleexecutor import RuleExecutor
+    
     executor = RuleExecutor()
     executor.execute_all(ai)
     ```
