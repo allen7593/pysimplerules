@@ -6,24 +6,24 @@ from pysrules.initializer import Initializer
 from pysrules.ruleReloader import RuleReloader
 from pysrules.ruleexecutor import RuleExecutor
 
+if __name__ == '__main__':
+    init = Initializer(agenda_config)
+    init.initialize()
 
-init = Initializer(agenda_config)
-init.initialize()
+    reloader = RuleReloader(import_list)
+    reloader.reload()
 
-reloader = RuleReloader(import_list)
-reloader.reload()
+    preparer = AgendaPreparer()
+    test_ins = TestClass()
+    test_ins.a = 1
+    ai = preparer.prepare_agenda("test_agenda", test_ins)
 
-preparer = AgendaPreparer()
-test_ins = TestClass()
-test_ins.a = 1
-ai = preparer.prepare_agenda("test_agenda", test_ins)
+    executor = RuleExecutor()
+    executor.execute_all(ai)
 
-executor = RuleExecutor()
-executor.execute_all(ai)
+    preparer2 = AgendaPreparer()
+    test_ins.a = 2
+    ai2 = preparer.prepare_agenda("test_agenda", test_ins)
 
-preparer2 = AgendaPreparer()
-test_ins.a = 2
-ai2 = preparer.prepare_agenda("test_agenda", test_ins)
-
-executor.execute_all(ai2)
+    executor.execute_all(ai2)
 
