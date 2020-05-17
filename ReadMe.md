@@ -7,7 +7,7 @@
             "agenda_name": "test_agenda",
             "items_provided": [
                 TestClass,
-                <classes that need to provided for this agenda,
+                <classes that need to provided to this agenda,
                 Note: Premitive types are not supported:
                     - int
                     - float
